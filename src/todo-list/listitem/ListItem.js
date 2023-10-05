@@ -3,17 +3,27 @@ import styles from "./ListItem.module.css";
 import DisplayTotalItems from "../displaytotalitems/DisplayTotalItems";
 import GetRandomCityData from "../getRandomCityData/GetRandomCityData";
 import { Link } from "react-router-dom";
-
+import { Task_Completed } from "../../store";
 const ListItem = ({ state, dispatch }) => {
+  // const dispatch = useDispatch();
+
   const handleOnClick = (element) => {
-    dispatch({
-      type: "Task_Completed",
-      value: {
+    // dispatch({
+    //   type: "Task_Completed",
+    //   value: {
+    //     id: element.id,
+    //     todoItem: element.todoItem,
+    //     isCompleted: !element.isCompleted,
+    //   },
+    // });
+
+    dispatch(
+      Task_Completed({
         id: element.id,
         todoItem: element.todoItem,
         isCompleted: !element.isCompleted,
-      },
-    });
+      })
+    );
   };
 
   return (
@@ -28,7 +38,6 @@ const ListItem = ({ state, dispatch }) => {
                 key={element.id}
                 onClick={() => handleOnClick(element)}
               >
-                
                 {element.todoItem}
               </li>
             );

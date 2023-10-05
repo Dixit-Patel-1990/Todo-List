@@ -1,7 +1,8 @@
 import styles from "./Input_todo_item.module.css";
 import { useState } from "react";
-
+import { Add } from "../../store";
 const Input_todo_item = ({ state, dispatch }) => {
+  console.log("Input_todo_item ", state);
   const [todoItem, setTodoItem] = useState("");
 
   const handleOnChange = (e) => {
@@ -9,15 +10,22 @@ const Input_todo_item = ({ state, dispatch }) => {
   };
 
   const handleOnClickForAddItemButton = () => {
-    dispatch({
-      type: "Add",
-      value: {
+    // dispatch({
+    //   type: "Add",
+    //   value: {
+    //     id: state.length + 1,
+    //     todoItem: todoItem,
+    //     isCompleted: false
+    //   },
+    // });
+
+    dispatch(
+      Add({
         id: state.length + 1,
         todoItem: todoItem,
-        isCompleted: false
-      },
-    });
-
+        isCompleted: false,
+      })
+    );
     setTodoItem("");
   };
 
