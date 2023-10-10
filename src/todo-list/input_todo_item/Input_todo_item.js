@@ -36,6 +36,7 @@ const Input_todo_item = ({ state, dispatch }) => {
           type="text"
           name="todo_item"
           id="todo_item"
+          data-testid="todo_item"
           className={styles.input_todo_item}
           value={todoItem}
           onChange={(e) => handleOnChange(e)}

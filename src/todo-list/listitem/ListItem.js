@@ -28,22 +28,24 @@ const ListItem = ({ state, dispatch }) => {
 
   return (
     <>
-      <ul className={styles.pending_todos}>
+      <ul data-testid="listitem" className={styles.pending_todos}>
         {state &&
           state.length > 0 &&
           state.map((element, index) => {
+            console.log(element);
             return (
               <li
-                className={element.isCompleted ? styles.isComplete : ""}
+                className={element.isCompleted && styles.isComplete}
                 key={element.id}
                 onClick={() => handleOnClick(element)}
+                data-testid={"test" + element.id}
               >
                 {element.todoItem}
               </li>
             );
           })}
       </ul>
-      <div className={styles.footer}>
+      <div className={styles.footer} data-testid="footer">
         <DisplayTotalItems state={state} />
 
         <Link className={styles.link} to="/GetRandomCityData">

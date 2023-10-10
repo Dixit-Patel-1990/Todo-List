@@ -14,7 +14,7 @@ const GetRandomCityData = () => {
 
   return (
     <>
-      <h1> {data.country} </h1>
+      <h1 data-testid="country"> {data.country} </h1>
     </>
   );
 };
